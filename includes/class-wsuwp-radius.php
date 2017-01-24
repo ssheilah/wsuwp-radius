@@ -26,6 +26,19 @@ class WSUWP_Radius {
 	 * Setup hooks to include.
 	 *
 	 * @since 0.0.1
-	 */
-	public function setup_hooks() {}
+	*/
+	public function setup_hooks() {
+
+		add_shortcode( 'radius-form', 'radius_form_shortcode' );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wsuf_radius_enqueue_scripts' ), 99 );
+
+		// [radius-form]
+		function radius_form_shortcode( $atts ) {
+			$a = shortcode_atts( array(
+				'id' => 'https://wsu.edu',
+				'height' => '100vh',
+			), $atts );
+			return "<iframe scrolling='no' src='{$a['id']}' style='width:100%; height:{$a['height']};'></iframe>";
+		}
+	}
 }
