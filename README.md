@@ -4,4 +4,4 @@
 
 A plugin to create a shortcode to embed an iframe containing a Radius form. 
 
-Attributes: ID (the URL of the form; must end in .scc) and height (in vh).
+Attributes: url (the URL of the form; must end in .scc); title; and height (in vh).

@@ -30,15 +30,19 @@ class WSUWP_Radius {
 	public function setup_hooks() {
 
 		add_shortcode( 'radius-form', 'radius_form_shortcode' );
-		add_action( 'wp_enqueue_scripts', array( $this, 'wsuf_radius_enqueue_scripts' ), 99 );
-
+		//	add_action( 'wp_enqueue_scripts', array( $this, 'wsuf_radius_enqueue_scripts' ), 99 );
 		// [radius-form]
 		function radius_form_shortcode( $atts ) {
 			$a = shortcode_atts( array(
-				'id' => 'https://wsu.edu',
-				'height' => '100vh',
+				'url' => 'https://wsu.edu',
+				'height' => '20vh',
+				'title' => 'no title',
 			), $atts );
-			return "<iframe scrolling='no' src='{$a['id']}' style='width:100%; height:{$a['height']};'></iframe>";
+			if ( preg_match( '/^https\:\/\/wsuonline\.hobsonsradius\.com\/ssc\/eform\/[A-Za-z_0-9]{9,19}\.ssc$/', $a['url'] ) ) {
+				return "<iframe scrolling='no' title='{$a['title']}'; src='{$a['url']}' style='width:100%; height:{$a['height']};'></iframe>";
+			} else {
+				return '<p>not radius</p>';
+			}
 		}
 	}
 }
