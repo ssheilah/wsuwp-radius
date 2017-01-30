@@ -34,7 +34,7 @@ class WSUWP_Radius {
 		function radius_form_shortcode( $atts ) {
 			$a = shortcode_atts( array(
 				'url' => 'https://wsu.edu',
-				'height' => '20vh',
+				'height' => '20',
 				'title' => 'WSU Online contact form',
 			), $atts );
 
