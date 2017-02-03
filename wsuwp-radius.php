@@ -2,12 +2,10 @@
 /*
 Plugin Name: WSUWP Radius
 Version: 0.0.1
-Description: A WordPress plugin to create a shortcode to embed a Radius form using the form's URL.
+Description: A WordPress plugin to create a shortcode to embed a Hobsons Radius contact form using the form's URL.
 Author: washingtonstateuniversity, ssheilah
 Author URI: https://web.wsu.edu/
 Plugin URI: https://github.com/ssheilah/wsuwp-radius
-Text Domain: [Plugin Text Domain]
-Domain Path: /languages
 */
 
 // If this file is called directly, abort.
