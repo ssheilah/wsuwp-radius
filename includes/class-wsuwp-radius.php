@@ -34,16 +34,18 @@ class WSUWP_Radius {
 	/* [radius_form title url height] */
 	public function radius_form_shortcode( $atts ) {
 		$a = shortcode_atts( array(
-			'url' => '',
+			'url'    => '',
 			'height' => '20',
-			'title' => 'WSU Online contact form',
+			'title'  => 'WSU Online contact form',
+			'width'  => '755',
 		), $atts );
 
 		if ( preg_match( '/^https\:\/\/wsuonline\.hobsonsradius\.com\/ssc\/[a-z]{3,8}\/[A-Za-z_0-9]{9,25}\.ssc$/', $a['url'] ) ) {
 			$url = esc_url( $a['url'] );
 			$height = absint( $a['height'] );
 			$title = esc_attr( $a['title'] );
-			return "<iframe scrolling='no' title='{$title}'; src='{$url}' style='width:100%; height:{$height}px;'></iframe>";
+			$width = esc_attr( $a['width'] );
+			return "<iframe scrolling='no' title='{$title}'; src='{$url}' style='width:{$width}px; height:{$height}px;'></iframe>";
 		} else {
 			return '<p>Unable to import the form. Please use the correct format: [radius_form url="https://wsuonline..." title="form title" height="150"] </p>';
 		}
