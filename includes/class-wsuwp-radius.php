@@ -40,7 +40,7 @@ class WSUWP_Radius {
 			'width'  => '755',
 		), $atts );
 
-		if ( preg_match( '/^https\:\/\/wsuonline\.hobsonsradius\.com\/ssc\/[a-z]{3,8}\/[A-Za-z_0-9]{9,25}\.ssc$/', $a['url'] ) ) {
+		if ( preg_match( '/^https\:\/\/wsuonline\.(hobsonsradius|radiusbycampusmgmt)\.com\/ssc\/[a-z]{3,8}\/[A-Za-z_0-9]{9,25}\.ssc$/', $a['url'] ) ) {
 			$url = esc_url( $a['url'] );
 			$height = absint( $a['height'] );
 			$title = esc_attr( $a['title'] );
